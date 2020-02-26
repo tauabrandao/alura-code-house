@@ -23,7 +23,7 @@
 			<div class="col-md-12">
 				<h4>Cadastro de Livros</h4>
 
-				<form action="/casadocodigo/produtos/cadastrar" method="post">
+				<form action="/casadocodigo/produtos" method="post">
 					<div class="form-group">
 						<label for="titulo">Título</label> <input type="text"
 							class="form-control" name="titulo" placeholder="Título do Livro" />
