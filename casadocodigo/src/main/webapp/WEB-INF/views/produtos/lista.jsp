@@ -19,7 +19,17 @@
 <body>
 
 	<div class="container">
-		<div class="row">
+
+		<c:if test="${mensagem != null}">
+			<div class="row justify-content-sm-center">
+				<div class="alert alert-success" role="alert">
+					<c:out value="${mensagem }" />
+				</div>
+			</div>
+		</c:if>
+
+
+		<div class="row justify-content-sm-center">
 			<div class="col-md-12">
 				<h4>Livros cadastrados</h4>
 
