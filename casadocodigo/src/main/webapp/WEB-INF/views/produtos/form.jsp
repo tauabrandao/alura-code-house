@@ -4,7 +4,7 @@
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 
 
@@ -21,6 +21,18 @@
 
 <link rel="stylesheet" type="text/css" href="../../styles/estilo.css" />
 
+<style type="text/css">
+	.msg-erro{
+		color: red;
+		background-color: #FFE2E2;
+		border: 1px solid #FFBFBF;
+		border-radius: 10px;
+		padding: 5px;
+ 		float: right;
+	}
+</style>
+
+
 </head>
 <body>
 
@@ -29,38 +41,43 @@
 			<div class="col-md-12">
 				<h4>Cadastro de Livros</h4>
 
-<!-- 				mvcUrl("INICIAIS DO CONTROLE#metodo").build() para criar a URL -->
+				<!-- 				mvcUrl("INICIAIS DO CONTROLE#metodo").build() para criar a URL -->
 				<form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST"
 					commandName="produto">
 
 					<div class="form-group">
 						<label for="titulo">Título</label>
-						<input type="text" class="form-control" name="titulo" placeholder="Título do Livro" />
-						<form:errors path="titulo"/>
-						
-						
+						<form:input class="form-control" path="titulo" />
+						<form:errors class="msg-erro" path="titulo" />
+
+
 					</div>
 					<div class="form-group">
 						<label for="descricao">Descrição</label>
-						<textarea class="form-control" rows="10" cols="20"
-							name="descricao"></textarea>
-							
-							<form:errors path="descricao"/>
+						<form:textarea class="form-control" path="descricao" rows="10" cols="20"/>
+						<form:errors class="msg-erro" path="descricao" />
 					</div>
 					<div class="form-group">
-						<label for="paginas">Páginas</label> <input type="text"
-							class="form-control" name="paginas"
-							placeholder="Quantidade de páginas" />
-							
-							<form:errors path="paginas"/>
+						<label for="paginas">Páginas</label>
+						<form:input class="form-control" path="paginas"/>
+
+						<form:errors class="msg-erro" path="paginas" />
+					</div>
+					<div class="form-group">
+						<label for="dataLancamento">Data de Lançamento</label>
+						<form:input class="form-control" path="dataLancamento" />
+
+						<form:errors class="msg-erro" path="dataLancamento" />
 					</div>
 
 					<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
 						<div class="form-group">
-							<label>${tipoPreco}</label> <input class="form-control"
-								type="text" name="precos[${status.index}].valor" /> <input
+							<label>${tipoPreco}</label>
+							<form:input class="form-control" path="precos[${status.index}].valor" />							
+
+ 							<form:input
 								class="form-control" type="hidden"
-								name="precos[${status.index}].tipo" value="${tipoPreco}" />
+								path="precos[${status.index}].tipo" value="${tipoPreco}" />
 						</div>
 					</c:forEach>
 

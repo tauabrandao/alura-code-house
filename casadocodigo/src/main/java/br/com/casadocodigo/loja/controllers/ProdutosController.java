@@ -35,7 +35,7 @@ public class ProdutosController {
 	private ProdutoDAO dao;
 
 	@RequestMapping("form")
-	public ModelAndView form() {
+	public ModelAndView form(Produto produto) {
 		String jspRetorno = "form";
 
 		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspRetorno));
@@ -48,7 +48,7 @@ public class ProdutosController {
 	public ModelAndView gravar(@Valid Produto produto, BindingResult result, RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
-			return this.form();
+			return this.form(produto);
 		}
 
 		String retorno = "redirect:produtos";
