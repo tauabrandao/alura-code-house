@@ -43,7 +43,7 @@
 
 				<!-- 				mvcUrl("INICIAIS DO CONTROLE#metodo").build() para criar a URL -->
 				<form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST"
-					commandName="produto">
+					commandName="produto" enctype="multipart/form-data">
 
 					<div class="form-group">
 						<label for="titulo">Título</label>
@@ -80,6 +80,11 @@
 								path="precos[${status.index}].tipo" value="${tipoPreco}" />
 						</div>
 					</c:forEach>
+					
+					<div class="form-group">
+						<label for="sumario">Sumário</label>
+						<input class="form-control-file" name="sumario" type="file" />
+					</div>
 
 					<button class="btn btn-info" type="submit">Cadastrar</button>
 				</form:form>
