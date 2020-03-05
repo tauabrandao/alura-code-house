@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,7 +51,10 @@ public class ProdutosController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView gravar(MultipartFile sumario ,@Valid Produto produto, BindingResult result, RedirectAttributes redirectAttributes) {
+	public ModelAndView gravar(MultipartFile sumario, 
+			@Valid Produto produto,
+			BindingResult result,
+			RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
 			return this.form(produto);
@@ -77,6 +81,17 @@ public class ProdutosController {
 
 		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspRetorno));
 		mv.addObject("produtos", produtos);
+		return mv;
+	}
+	
+	@RequestMapping("detalhe/{id}")
+	public ModelAndView detalhe(@PathVariable("id") Integer id) {
+		String jspRetorno = "detalhe";
+		
+		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspRetorno));
+		Produto produto = dao.find(id);
+		mv.addObject("produto", produto);
+		
 		return mv;
 	}
 
