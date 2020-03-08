@@ -42,9 +42,9 @@ public class ProdutosController {
 
 	@RequestMapping("form")
 	public ModelAndView form(Produto produto) {
-		String jspRetorno = "form";
+		String jspFile = "form";
 
-		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspRetorno));
+		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspFile));
 		mv.addObject("tipos", TipoPreco.values());
 
 		return mv;
@@ -75,20 +75,20 @@ public class ProdutosController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listar() {
-		String jspRetorno = "lista";
+		String jspFile = "lista";
 
 		List<Produto> produtos = dao.listar();
 
-		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspRetorno));
+		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspFile));
 		mv.addObject("produtos", produtos);
 		return mv;
 	}
 	
 	@RequestMapping("detalhe/{id}")
 	public ModelAndView detalhe(@PathVariable("id") Integer id) {
-		String jspRetorno = "detalhe";
+		String jspFile = "detalhe";
 		
-		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspRetorno));
+		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspFile));
 		Produto produto = dao.find(id);
 		mv.addObject("produto", produto);
 		
