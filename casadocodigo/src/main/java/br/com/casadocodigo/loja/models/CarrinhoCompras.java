@@ -7,15 +7,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 @Component
-@Scope(value=WebApplicationContext.SCOPE_SESSION)
-public class CarrinhoCompras implements Serializable{
-	
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class CarrinhoCompras implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private Map<CarrinhoItem, Integer> itensDoCarrinho = new LinkedHashMap<>();
 
 	public void add(CarrinhoItem itemAInserir) {
@@ -30,35 +31,33 @@ public class CarrinhoCompras implements Serializable{
 	}
 
 	public int getQuantidade() {
-		return itensDoCarrinho.values().stream()
-		        .reduce(0, (proximo, acumulador) -> proximo + acumulador);
+		return itensDoCarrinho.values().stream().reduce(0, (proximo, acumulador) -> proximo + acumulador);
 	}
 
-	public Collection<CarrinhoItem> getItens(){
+	public Collection<CarrinhoItem> getItens() {
 		return itensDoCarrinho.keySet();
 	}
-	
+
 	public BigDecimal getTotal(CarrinhoItem item) {
 		return item.getTotal(getQuantidade(item));
 	}
-	
+
 	public BigDecimal getTotal() {
 		BigDecimal total = BigDecimal.ZERO;
-		
-		for(CarrinhoItem item : itensDoCarrinho.keySet()) {
+
+		for (CarrinhoItem item : itensDoCarrinho.keySet()) {
 			total = total.add(getTotal(item));
 		}
-		
+
 		return total;
 	}
 	
+	public void remover(Integer produtoID, TipoPreco tipoPreco) {
+		Produto produto = new Produto();
+		produto.setId(produtoID);
+		itensDoCarrinho.remove(new CarrinhoItem(produto, tipoPreco));
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 }

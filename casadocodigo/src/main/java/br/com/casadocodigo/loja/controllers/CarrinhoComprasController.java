@@ -17,9 +17,9 @@ import br.com.casadocodigo.loja.util.ReturnView;
 
 @Controller
 @RequestMapping("/carrinho")
-@Scope(value=WebApplicationContext.SCOPE_REQUEST)
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 public class CarrinhoComprasController {
-	
+
 	private final String viewFolder = "carrinho";
 
 	@Autowired
@@ -45,31 +45,18 @@ public class CarrinhoComprasController {
 
 		return carrinhoItem;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView itens() {
 		String jspFile = "itens";
 		return new ModelAndView(ReturnView.retornaView(viewFolder, jspFile));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@RequestMapping("/remover")
+	public ModelAndView remover(Integer produtoId, TipoPreco tipoPreco) {
+		String retorno = "redirect:/carrinho";
+		carrinho.remover(produtoId, tipoPreco);
+		return new ModelAndView(retorno);
+	}
+
 }
