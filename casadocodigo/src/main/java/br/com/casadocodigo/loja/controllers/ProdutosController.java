@@ -29,7 +29,7 @@ import br.com.casadocodigo.loja.validation.ProdutoValidation;
 public class ProdutosController {
 
 	private final String viewFolder = "produtos";
-	
+
 	@Autowired
 	private FileSaver fileSaver;
 
@@ -53,15 +53,13 @@ public class ProdutosController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	@CacheEvict(value = "produtosHome", allEntries = true)
-	public ModelAndView gravar(MultipartFile sumario, 
-			@Valid Produto produto,
-			BindingResult result,
+	public ModelAndView gravar(MultipartFile sumario, @Valid Produto produto, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
 			return this.form(produto);
 		}
-		
+
 		String path = fileSaver.write("arquivos-sumario", sumario);
 
 		String retorno = "redirect:produtos";
@@ -85,15 +83,15 @@ public class ProdutosController {
 		mv.addObject("produtos", produtos);
 		return mv;
 	}
-	
+
 	@RequestMapping("detalhe/{id}")
 	public ModelAndView detalhe(@PathVariable("id") Integer id) {
 		String jspFile = "detalhe";
-		
+
 		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspFile));
 		Produto produto = dao.find(id);
 		mv.addObject("produto", produto);
-		
+
 		return mv;
 	}
 

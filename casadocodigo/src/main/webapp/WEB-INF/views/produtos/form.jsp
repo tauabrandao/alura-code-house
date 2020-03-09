@@ -16,14 +16,14 @@
 
 
 <style type="text/css">
-	.msg-erro{
-		color: red;
-		background-color: #FFE2E2;
-		border: 1px solid #FFBFBF;
-		border-radius: 10px;
-		padding: 5px;
- 		float: right;
-	}
+.msg-erro {
+	color: red;
+	background-color: #FFE2E2;
+	border: 1px solid #FFBFBF;
+	border-radius: 10px;
+	padding: 5px;
+	float: right;
+}
 </style>
 
 
@@ -51,12 +51,12 @@
 					</div>
 					<div class="form-group">
 						<label for="descricao">Descrição</label>
-						<form:textarea class="form-control" path="descricao"/>
+						<form:textarea class="form-control" path="descricao" />
 						<form:errors class="msg-erro" path="descricao" />
 					</div>
 					<div class="form-group">
 						<label for="paginas">Páginas</label>
-						<form:input class="form-control" path="paginas"/>
+						<form:input class="form-control" path="paginas" />
 
 						<form:errors class="msg-erro" path="paginas" />
 					</div>
@@ -70,17 +70,17 @@
 					<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
 						<div class="form-group">
 							<label>${tipoPreco}</label>
-							<form:input class="form-control" path="precos[${status.index}].valor" />							
+							<form:input class="form-control"
+								path="precos[${status.index}].valor" />
 
- 							<form:input
-								class="form-control" type="hidden"
+							<form:input class="form-control" type="hidden"
 								path="precos[${status.index}].tipo" value="${tipoPreco}" />
 						</div>
 					</c:forEach>
-					
+
 					<div class="form-group">
-						<label for="sumario">Sumário</label>
-						<input class="form-control-file" name="sumario" type="file" />
+						<label for="sumario">Sumário</label> <input
+							class="form-control-file" name="sumario" type="file" />
 					</div>
 
 					<button class="btn btn-info" type="submit">Cadastrar</button>

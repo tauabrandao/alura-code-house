@@ -14,7 +14,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li><a href="${s:mvcUrl('PC#listar').build()}"> Lista de
-						Produtos </a></li> | 
+						Produtos </a></li> |
 				<li><a href="${s:mvcUrl('PC#form').build()}"> Cadastro de
 						Produtos </a></li>
 			</ul>
