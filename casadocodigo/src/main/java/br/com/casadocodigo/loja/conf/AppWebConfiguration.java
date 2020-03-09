@@ -108,5 +108,24 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 		return resolver;
 	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

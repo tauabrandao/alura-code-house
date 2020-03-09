@@ -9,12 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Casa do Codigo</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-
-<link rel="stylesheet" type="text/css" href="../../styles/estilo.css" />
+<jsp:include page="../usualHTML/bootstrap-import.jsp"></jsp:include>
+<jsp:include page="../usualHTML/navbar.jsp"></jsp:include>
 
 </head>
 <body>
@@ -34,7 +30,7 @@
 			<div class="col-md-12">
 				<h4>Livros cadastrados</h4>
 
-				<table class="table table-sm table-hover">
+				<table class="table table-sm table-hover table-bordered">
 					<thead>
 						<tr>
 							<th>Título</th>
