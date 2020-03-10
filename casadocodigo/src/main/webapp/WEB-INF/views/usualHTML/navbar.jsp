@@ -19,6 +19,15 @@
 						Produtos </a></li>
 			</ul>
 
+			<ul class="nav navbar-nav navbar-right">
+				<li class="nav-item"><a href="#"> <security:authentication
+							property="principal" var="usuario" /> Usuário:
+						${usuario.username }
+				</a></li>
+				<li class="nav-item"><a href="<c:url value="/logout" />">Sair</a></span>
+				</li>
+			</ul>
+
 		</div>
 	</div>
 </nav>

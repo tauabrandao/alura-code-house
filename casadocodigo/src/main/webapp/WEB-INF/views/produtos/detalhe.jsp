@@ -72,7 +72,7 @@
 		</header>
 
 		<section class="buy-options clearfix">
-			<form action='<c:url value="/carrinho/add"/>' method="post" class="container">
+			<form:form action='<c:url value="/carrinho/add"/>' method="post" class="container">
 				<input type="hidden" value="${produto.id }" name="produtoId" >
 				<ul id="variants" class="clearfix">
 					<c:forEach items="${produto.precos }" var="preco">
@@ -85,7 +85,7 @@
 					</c:forEach>
 				</ul>
 				<button type="submit" class="submit-image icon-basket-alt" title="Compre Agora ${produto.titulo }"></button>
-			</form>
+			</form:form>
 		</section>
 
 		<div class="container">

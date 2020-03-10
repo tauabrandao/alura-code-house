@@ -86,6 +86,7 @@ public class ProdutosController {
 
 	@RequestMapping("detalhe/{id}")
 	public ModelAndView detalhe(@PathVariable("id") Integer id) {
+
 		String jspFile = "detalhe";
 
 		ModelAndView mv = new ModelAndView(ReturnView.retornaView(viewFolder, jspFile));
