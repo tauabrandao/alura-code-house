@@ -1,9 +1,9 @@
 package br.com.casadocodigo.loja.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.function.Predicate;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ public class Produto {
 	private String descricao;
 	private int paginas;
 	@ElementCollection
-	private List<Preco> precos;
+	private List<Preco> precos = new ArrayList<>();
 	@DateTimeFormat
 	private Calendar dataLancamento;
 	private String sumarioPath;
