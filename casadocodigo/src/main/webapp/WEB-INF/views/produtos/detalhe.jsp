@@ -2,6 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,8 +13,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<link rel="icon" href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/favicon.ico?11981592617154272979" type="image/ico" />
-<link href="https://plus.googlecom/108540024862647200608" rel="publisher" />
+
 
 <title>Livros de Java, SOA, Android, iPhone, Ruby on Rails e muito mais - Casa do Código</title>
 
@@ -61,8 +63,7 @@
 	<article id="livro-css-eficiente">
 		<header id="product-highlight" class="clearfix">
 			<div id="product-overview" class="container">
-				<img width="280px" height="395px" src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145"
-					class="product-featured-image" />
+				
 				<h1 class="product-title">${produto.titulo }</h1>
 				<p class="product-author">
 					<span class="product-author-link"> </span>
@@ -72,7 +73,7 @@
 		</header>
 
 		<section class="buy-options clearfix">
-			<form:form action='<c:url value="/carrinho/add"/>' method="post" class="container">
+			<form:form action='${contextPath }carrinho/add'  method="post" class="container">
 				<input type="hidden" value="${produto.id }" name="produtoId" >
 				<ul id="variants" class="clearfix">
 					<c:forEach items="${produto.precos }" var="preco">
