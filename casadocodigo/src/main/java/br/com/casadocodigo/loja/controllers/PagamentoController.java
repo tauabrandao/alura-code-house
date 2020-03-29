@@ -13,7 +13,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.casadocodigo.loja.model.DadosPagamento;
+import br.com.casadocodigo.loja.models.DadosPagamento;
 import br.com.casadocodigo.loja.models.CarrinhoCompras;
 
 @Controller

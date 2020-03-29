@@ -18,7 +18,7 @@ public class DataSourceConfigurationTest {
 		dataSource.setUsername("root");
 		dataSource.setPassword("qazwsx12");
 		
-		return dataSource();
+		return dataSource;
 	}
 
 }
