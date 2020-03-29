@@ -16,7 +16,7 @@
             padding: 60px 0px;
         }
     </style>
-    <jsp:include page="usualHTML/bootstrap-import.jsp"></jsp:include>
+    <%@ include file="/WEB-INF/views/usualHTML/bootstrap-import.jsp" %>
 </head>
 <body>
     <div class="container">

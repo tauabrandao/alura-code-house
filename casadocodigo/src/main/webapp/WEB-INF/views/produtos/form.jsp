@@ -25,13 +25,11 @@
 	float: right;
 }
 </style>
-
-
-<jsp:include page="../usualHTML/bootstrap-import.jsp"></jsp:include>
-<jsp:include page="../usualHTML/navbar.jsp"></jsp:include>
+<%@ include file="/WEB-INF/views/usualHTML/bootstrap-import.jsp" %>
 
 </head>
 <body>
+<%@ include file="/WEB-INF/views/usualHTML/navbar.jsp" %>
 
 	<div class="container">
 		<div class="row">

@@ -11,11 +11,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Casa do Codigo</title>
 
-<jsp:include page="../usualHTML/bootstrap-import.jsp"></jsp:include>
-<jsp:include page="../usualHTML/navbar.jsp"></jsp:include>
+
+<%@ include file="/WEB-INF/views/usualHTML/bootstrap-import.jsp" %>
 
 </head>
 <body>
+
+<%@ include file="/WEB-INF/views/usualHTML/navbar.jsp" %>
 
 	<div class="container">
 
